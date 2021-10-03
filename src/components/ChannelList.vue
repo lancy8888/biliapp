@@ -11,19 +11,21 @@
         </div>
 
         <div class="collapse" @click="isExpand = !isExpand">
-            <span>{{ isExpand ? "折叠":"展开"}}</span>
-            <i class="iconfont" :class="isExpand ? 'icon-xiangshangzhanhang':'icon-xiangxiazhanhang'"></i>
+            <span>{{ isExpand ? "收起":"展开"}}</span>
+            <Icon :type="isExpand ? 'arrowUp':'arrowDown'" extraClass="icon"></Icon>          
         </div>
     </div>  
 
 </template>
 
 <script>
-import Channel from "./Channel.vue"
 import channelServ from "../services/channel"
+import Channel from "./Channel.vue"
+import Icon from "./Icon.vue"
 export default {
     components: {
         Channel,
+        Icon,
     },
     // props: ["activeId"],
     props: {
@@ -65,8 +67,7 @@ export default {
 }
 </script>
 
-<style scoped>
-    @import "//at.alicdn.com/t/font_2002770_0bvfck2jqoxh.css";
+<style scoped>    
     .channel-list {
         overflow: hidden;
         transition: .3s;
@@ -86,9 +87,10 @@ export default {
         border-bottom: 1px solid #e7e7e7;
     }
 
-    .iconfont {
+     .icon {
         font-size: 12px;
         margin-left: 5px;
+        color: #f40;
     }
 
 </style>
